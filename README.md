@@ -7,6 +7,7 @@ the learning process includes:
 
 
 1. the usage of express and graphQL application
+
 <a href="src/hello.js">Hello.js</a>
 ```
 const express = require('express')
@@ -14,9 +15,11 @@ const { buildSchema } = require('graphql')
 const { graphqlHTTP } = require('express-graphql')
 ```
 2. the link of front end to fetch graphql 
-<a href="public/index.html">db.js</a>
+
+<a href="public/index.html">index.html</a>
 
 3. connect to mongoDB database and CRUD
+
 <a href="src/db.js">db.js</a>
 
 ---
