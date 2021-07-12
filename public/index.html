@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="getData()">Get Data</button>
+
+<script>
+    function getData(){
+        const query = `
+        query GetWriter($writerName: String!,$bookName: String!){
+            getWriter(writerName: $writerName){
+                name
+                nation
+                age
+                introduce(bookName: $bookName)
+            }
+        }
+    `
+        const variables = {writerName: "Shakespeare", bookName : "Hamlet"}
+
+        fetch('./graphiql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Set-Cookie':'auth'
+            },
+            body: JSON.stringify({
+                query, variables
+            })
+        })
+            .then(res => res.json())
+            .then(json => {
+                console.log(json)
+            })
+    }
+</script>
+
+</body>
+</html>
