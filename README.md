@@ -35,7 +35,7 @@ const DB_PATH = 'mongodb://127.0.0.1:27017/hero_table'
 
 collective GUI of database
 
-![Navicat](navicat_mongodb.png)
+![Navicat](./navicat_mongodb.png)
 
 
 ## some queries
