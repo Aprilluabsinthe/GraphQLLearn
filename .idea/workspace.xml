@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7176d0b-3316-4d00-b848-097309b1a464" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +15,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="GraphQL File" />
       </list>
     </option>
   </component>
@@ -49,12 +48,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1626034341707</updated>
-      <workItem from="1626034342797" duration="15240000" />
+      <workItem from="1626034342797" duration="16207000" />
     </task>
+    <task id="LOCAL-00001" summary="connect to mongo db">
+      <created>1626124385346</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1626124385346</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="connect to mongo db" />
+    <option name="LAST_COMMIT_MESSAGE" value="connect to mongo db" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1234" y="461" key="Github.ShareDialog" timestamp="1626119657968">
@@ -65,5 +76,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="1169" y="269" key="Github.UntrackedFilesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1626119663000" />
+    <state x="978" y="297" key="Vcs.Push.Dialog.v2" timestamp="1626124387102">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="978" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1626124387102" />
   </component>
 </project>
