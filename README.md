@@ -100,6 +100,97 @@ query{
 }
 ```
 
+<br>
+<br>
+<br>
+
+## Notes
+
+### 1. schema and Types:
+
+**1.1 Query:**
+
+The entering point for all queries. You can only have and must have one Query.
+
+**1.2 Scalar Types:**
+
+* Int : Integer
+* Float : Double precise Float
+* String : UTF-8 character serial
+* Boolean : true/false
+* ID : Global Unique Identification, mostly used to query objects or for caching. Serialized as a **String**.
+
+**1.3 Object Types and Fields:**
+
+Self-defined objects.
+
+Schema=>
+```
+const schema = buildSchema(`
+    Type User{
+        name: String
+        age: Int
+}`)
+```
+Root=>
+```
+const root = {
+    user(){
+        return {name:"jack", age:18}
+    }
+}
+```
+Query=>
+```Query
+{
+    user{
+        name
+        age
+    }
+}
+```
+
+**1.4 Array Types:**
+```
+Type Score{
+    name: String
+    score: Float
+}
+
+User{
+    name: String
+    hobbies: [String]
+    score: [Scores]
+}
+```
+
+If an object is nested, the fields must be specified when quering.
+
+
+**1.5 Not Null Type**
+```
+Type Score{
+    name: String
+    score: Float
+}
+
+User{
+    name: String!
+    hobbies: [String!]!
+    score: [Scores]
+}
+```
+```!```means not null requirements.
+
+```[]!```(Outer) Array Not Null
+
+```[!]```(inner) array elements not null
+
+**1.6 CRUD operation**
+
+
 ---
 
+
+---
 © Di Lu
