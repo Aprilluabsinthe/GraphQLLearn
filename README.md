@@ -186,7 +186,256 @@ User{
 
 ```[!]```(inner) array elements not null
 
-**1.6 CRUD operation**
+**1.6 Read/Find operation**
+
+mock data=>
+```
+const articles = [
+{id:'1', title: 'article 1', body: 'article 1 body.'},
+{id:'2', title: 'article 2', body: 'article 2 body.'},
+{id:'3', title: 'article 3', body: 'article 3 body.'}
+]
+```
+schema=>
+```
+Type Query{
+    article(id:ID!): Article
+}
+```
+root=>
+```
+const root = {
+    article({ id }}){
+        return articles.find(article => article.id === id)
+    }
+}
+
+```
+
+query=>
+```
+{
+    article(id:'1'){
+        title
+    }
+}
+```
+
+**1.7 Create/Update/Delete operation : Mutation**
+```
+Type Mutation{
+    createArticle(title: String!, body: String!): Article,
+}
+```
+root=>
+```
+const root = {
+    createArticle({title, body}){
+        return null
+    }
+}
+
+```
+Mutation=>
+```
+mutation {
+    createArticle(title:"AA", body:"AA body"){
+        id
+        title
+        body
+    }
+}
+```
+We can collect arguments as a special type **input**
+
+schema=>
+``` type
+input CreateArticleInput{
+    title: String!
+    body: String!
+    taglist: [string!]
+}
+input updateArticle{
+    title: String!
+    body: String!
+}
+type DeletionStatus{
+    success: Boolean!
+}
+
+Type Mutation{
+    createArticle(article:CreateArticleInput!): Article,
+    updateArticle(id: ID, article:UpdateArticleInput!): Article,
+    deleteArticle(id: ID): DeletionStatus
+}
+```
+
+root=>
+``` root
+const root = {
+    createArticle( {article} ){
+        article.id = uuidv4()
+        articles.push(article)
+        return article
+    }
+    updateArticle( {id，article : postArticle} ){
+        articles.find(findArticle => article.id === id)
+        findArticle.title = postArticle.title
+        findArticle.body = postArticle.body
+        return findArticle
+    }
+    deleteArticle( {id} ){
+        articles.find(findArticle => article.id === id)
+        findArticle.splice(index,1)
+        return {success: true}
+    }
+}
+```
+Mutation=>
+```
+mutation {
+    createArticle(article: {title:"AA",body:"AA body",taglist:["tag1","tag2"]} ){
+        id
+        title
+        body
+    }
+    updateArticle(id:'3',article: {title:"CC",body:"CC body",taglist:["tag1","tag2"]} ){
+        id
+        title
+        body
+    }
+    deleteArticle( id:'3' ){
+        success
+    }
+}
+```
+### 2. frontend Application
+
+Template:
+
+```
+<script>
+    axios({
+        method:'POST'
+        url:'http://localhost:3000/graphql'
+        data:{
+            query:``
+        }
+    }).then(res => {
+        console.log(res.data)
+    })
+</script>
+```
+
+It is suggested that each query be given a special name.
+**Get**
+String / param concat
+```
+const id = 1
+query getArticle(){
+    article(id:${id}){
+        id
+        title
+    }
+}
+```
+=> param variable $id
+=> pass variable to data
+```
+<script>
+    axios({
+        method:'POST'
+        url:'http://localhost:3000/graphql'
+        data:{
+            query:`
+                query getArticle($id:ID!){
+                    article( id : $id ){
+                        id
+                        title
+                    }
+                }
+            `,
+            variables : {
+                id: 1
+            }).then(res => {
+                    console.log(res.data)
+                })
+</script>
+```
+**Create**
+```
+<script>
+    axios({
+        method:'POST'
+        url:'http://localhost:3000/graphql'
+        data:{
+            query:`
+                mutation createArticle($article:CreateArticleInput!){
+                    createArticle( article : $article ){
+                        id
+                        title
+                        body
+                    }
+                }
+            `,
+            variables : {
+                article: {
+                    title: "DD",
+                    body: "DD body",
+                    taglist: ["nature","flower"]
+                }
+            }).then(res => {
+                 console.log(res.data)
+             })
+</script>
+```
+**Update**
+```
+<script>
+    axios({
+        method:'POST'
+        url:'http://localhost:3000/graphql'
+        data:{
+            query:`
+                mutation updateArticle($id:ID,$article:UpdateArticleInput!){
+                    updateArticle( id: $id, article : $article ){
+                        id
+                        title
+                        body
+                    }
+                }
+            `,
+            variables : {
+                id: 3,
+                article: {
+                    title: "DD",
+                    body: "DD body"
+                }
+            }).then(res => {
+                 console.log(res.data)
+             })
+</script>
+```
+**Delete**
+```
+<script>
+    axios({
+        method:'POST'
+        url:'http://localhost:3000/graphql'
+        data:{
+            query:`
+                mutation deleteArticle($id: ID){
+                    updateArticle( id: $id ){
+                        success
+                    }
+                }
+            `,
+            variables : {
+                id: 2,
+            }
+</script>
+```
+
 
 
 ---

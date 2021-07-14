@@ -73,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1626034341707</updated>
       <workItem from="1626034342797" duration="17654000" />
-      <workItem from="1626208569443" duration="1215000" />
+      <workItem from="1626208569443" duration="4173000" />
     </task>
     <task id="LOCAL-00001" summary="connect to mongo db">
       <created>1626124385346</created>
@@ -124,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626126262155</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="schema and types">
+      <created>1626210137269</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1626210137269</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +156,8 @@
     <MESSAGE value="create /static and add learning details to README.md" />
     <MESSAGE value="change typos of text for index.html" />
     <MESSAGE value="change formats" />
-    <option name="LAST_COMMIT_MESSAGE" value="change formats" />
+    <MESSAGE value="schema and types" />
+    <option name="LAST_COMMIT_MESSAGE" value="schema and types" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1234" y="461" key="Github.ShareDialog" timestamp="1626119657968">
@@ -160,9 +168,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="1169" y="269" key="Github.UntrackedFilesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1626119663000" />
-    <state x="978" y="297" key="Vcs.Push.Dialog.v2" timestamp="1626126263381">
+    <state x="978" y="297" key="Vcs.Push.Dialog.v2" timestamp="1626210139778">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="978" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1626126263380" />
+    <state x="978" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1626210139778" />
   </component>
 </project>
