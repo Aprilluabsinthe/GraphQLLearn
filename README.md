@@ -504,6 +504,8 @@ We should use officially recomended methods.
 
 <a href="https://www.apollographql.com/docs/apollo-server/v2/data/data-sources/">Data Sources</a>
 
+<a href="https://github.com/GraphQLGuide/apollo-datasource-mongodb/">GitHub: MongoDB</a>
+
 and:
 ```javascript
 import { MongoClient } from 'mongodb'
@@ -523,10 +525,6 @@ const server = new ApolloServer({
   })
 })
 ```
-
-
-
-
 
 
 
