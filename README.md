@@ -9,7 +9,7 @@ GraphQL is a query language for APIs and a runtime for fulfilling those queries 
 1. the usage of express and graphQL application
 
 <a href="src/hello.js">Hello.js</a>
-```
+```javascript
 const express = require('express')
 const { buildSchema } = require('graphql')
 const { graphqlHTTP } = require('express-graphql')
@@ -24,7 +24,7 @@ const { graphqlHTTP } = require('express-graphql')
 
 ---
 # building process(Node.js)
-```
+```shell script
 npm init -y
 npm install express graphql express-graphql -S
 npm install nodemon
@@ -39,7 +39,7 @@ in ```package.json``` you can edit enter point of the source file.
 
 # running
 
-```
+```shell script
 npm start
 ```
 
@@ -74,7 +74,7 @@ collective GUI of database
 
 
 ## some queries
-```mutation
+```graphql endpoint doc
 mutation {
   createHero(input: {name: "Iron Man - Tony Stack", age: 55}) {
     name
@@ -91,7 +91,7 @@ mutation {
 
 ```
 
-```query
+```graphql endpoint doc
 query{
   hero{
     name
@@ -125,7 +125,7 @@ The entering point for all queries. You can only have and must have one Query.
 Self-defined objects.
 
 Schema=>
-```
+```javascript
 const schema = buildSchema(`
     Type User{
         name: String
@@ -133,7 +133,7 @@ const schema = buildSchema(`
 }`)
 ```
 Root=>
-```
+```javascript
 const root = {
     user(){
         return {name:"jack", age:18}
@@ -141,7 +141,7 @@ const root = {
 }
 ```
 Query=>
-```Query
+```graphql endpoint doc
 {
     user{
         name
@@ -151,13 +151,13 @@ Query=>
 ```
 
 **1.4 Array Types:**
-```
-Type Score{
+```graphql
+type Score{
     name: String
     score: Float
 }
 
-User{
+type User{
     name: String
     hobbies: [String]
     score: [Scores]
@@ -168,13 +168,13 @@ If an object is nested, the fields must be specified when quering.
 
 
 **1.5 Not Null Type**
-```
-Type Score{
+```graphql
+type Score{
     name: String
     score: Float
 }
 
-User{
+type User{
     name: String!
     hobbies: [String!]!
     score: [Scores]
@@ -189,7 +189,7 @@ User{
 **1.6 Read/Find operation**
 
 mock data=>
-```
+```javascript
 const articles = [
 {id:'1', title: 'article 1', body: 'article 1 body.'},
 {id:'2', title: 'article 2', body: 'article 2 body.'},
@@ -197,13 +197,13 @@ const articles = [
 ]
 ```
 schema=>
-```
-Type Query{
+```graphql
+type Query{
     article(id:ID!): Article
 }
 ```
 root=>
-```
+```javascript
 const root = {
     article({ id }}){
         return articles.find(article => article.id === id)
@@ -213,7 +213,7 @@ const root = {
 ```
 
 query=>
-```
+```graphql endpoint doc
 {
     article(id:'1'){
         title
@@ -222,13 +222,13 @@ query=>
 ```
 
 **1.7 Create/Update/Delete operation : Mutation**
-```
-Type Mutation{
+```graphql
+type Mutation{
     createArticle(title: String!, body: String!): Article,
 }
 ```
 root=>
-```
+```javascript
 const root = {
     createArticle({title, body}){
         return null
@@ -237,7 +237,7 @@ const root = {
 
 ```
 Mutation=>
-```
+```graphql endpoint doc
 mutation {
     createArticle(title:"AA", body:"AA body"){
         id
@@ -249,11 +249,11 @@ mutation {
 We can collect arguments as a special type **input**
 
 schema=>
-``` type
+```graphql
 input CreateArticleInput{
     title: String!
     body: String!
-    taglist: [string!]
+    taglist: [String!]
 }
 input updateArticle{
     title: String!
@@ -263,7 +263,7 @@ type DeletionStatus{
     success: Boolean!
 }
 
-Type Mutation{
+type Mutation{
     createArticle(article:CreateArticleInput!): Article,
     updateArticle(id: ID, article:UpdateArticleInput!): Article,
     deleteArticle(id: ID): DeletionStatus
@@ -271,19 +271,19 @@ Type Mutation{
 ```
 
 root=>
-``` root
+```javascript
 const root = {
     createArticle( {article} ){
         article.id = uuidv4()
         articles.push(article)
         return article
-    }
-    updateArticle( {id，article : postArticle} ){
+    },
+    updateArticle( {id, article : postArticle} ){
         articles.find(findArticle => article.id === id)
         findArticle.title = postArticle.title
         findArticle.body = postArticle.body
         return findArticle
-    }
+    },
     deleteArticle( {id} ){
         articles.find(findArticle => article.id === id)
         findArticle.splice(index,1)
@@ -292,7 +292,7 @@ const root = {
 }
 ```
 Mutation=>
-```
+```graphql endpoint doc
 mutation {
     createArticle(article: {title:"AA",body:"AA body",taglist:["tag1","tag2"]} ){
         id
@@ -313,7 +313,7 @@ mutation {
 
 Template:
 
-```
+```html
 <script>
     axios({
         method:'POST'
@@ -330,8 +330,7 @@ Template:
 It is suggested that each query be given a special name.
 **Get**
 String / param concat
-```
-const id = 1
+```graphql
 query getArticle(){
     article(id:${id}){
         id
@@ -341,7 +340,7 @@ query getArticle(){
 ```
 => param variable $id
 => pass variable to data
-```
+```html
 <script>
     axios({
         method:'POST'
@@ -363,7 +362,7 @@ query getArticle(){
 </script>
 ```
 **Create**
-```
+```html
 <script>
     axios({
         method:'POST'
@@ -390,7 +389,7 @@ query getArticle(){
 </script>
 ```
 **Update**
-```
+```html
 <script>
     axios({
         method:'POST'
@@ -417,7 +416,7 @@ query getArticle(){
 </script>
 ```
 **Delete**
-```
+```html
 <script>
     axios({
         method:'POST'
@@ -446,12 +445,12 @@ In this repo:
 
 Run the following command to install both of these dependencies and save them in your project's node_modules directory:
 
-```
+```shell script
 npm install apollo-server graphql
 ```
 
 Also create an empty index.js file in your project's root directory:
-```
+```shell script
 touch index.js
 ```
 
@@ -465,7 +464,75 @@ You can also:
 Instructions: 
 <a href="https://www.apollographql.com/docs/apollo-server/v2/integrations/middleware/#gatsby-focus-wrapper">Applying middle ware</a>
 
-``` npm install apollo-server-express```
+```shell script
+npm install apollo-server-express
+```
+
+```QUery(parent, args, context, info)```
+
+context: common logic
+
+```javascript
+server = new ApolloServer(){
+    context(req){
+        // normal logic
+    }
+}
+```
+
+### DATA SOURCE
+
+* REST API
+* SQL DAtaSource
+* MongoDB DAtaSource
+
+```javascript
+Query:{
+    async user(){
+        const users = await User.find()
+        return users
+    },
+    async user(parent , {id}){
+        const users = await User.findById(id)
+        return users
+    }
+}
+```
+But directly manipulate resolver is not recomended.
+
+We should use officially recomended methods.
+
+<a href="https://www.apollographql.com/docs/apollo-server/v2/data/data-sources/">Data Sources</a>
+
+and:
+```javascript
+import { MongoClient } from 'mongodb'
+
+import Users from './data-sources/Users.js'
+
+const client = new MongoClient('mongodb://localhost:27017/test')
+client.connect()
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  dataSources: () => ({
+    users: new Users(client.db().collection('users'))
+    // OR
+    // users: new Users(UserModel)
+  })
+})
+```
+
+
+
+
+
+
+
+
+
+
 
 ---
 
