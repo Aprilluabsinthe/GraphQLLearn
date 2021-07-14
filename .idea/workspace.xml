@@ -20,8 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7176d0b-3316-4d00-b848-097309b1a464" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/apollo_express.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/Apollo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="GraphQL File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -60,8 +65,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -73,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1626034341707</updated>
       <workItem from="1626034342797" duration="17654000" />
-      <workItem from="1626208569443" duration="4173000" />
+      <workItem from="1626208569443" duration="6467000" />
     </task>
     <task id="LOCAL-00001" summary="connect to mongo db">
       <created>1626124385346</created>
@@ -131,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626210137269</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="frontEnd Applications">
+      <created>1626229714833</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1626229714833</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +169,8 @@
     <MESSAGE value="change typos of text for index.html" />
     <MESSAGE value="change formats" />
     <MESSAGE value="schema and types" />
-    <option name="LAST_COMMIT_MESSAGE" value="schema and types" />
+    <MESSAGE value="frontEnd Applications" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontEnd Applications" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1234" y="461" key="Github.ShareDialog" timestamp="1626119657968">
@@ -168,9 +181,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="1169" y="269" key="Github.UntrackedFilesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1626119663000" />
-    <state x="978" y="297" key="Vcs.Push.Dialog.v2" timestamp="1626210139778">
+    <state x="978" y="297" key="Vcs.Push.Dialog.v2" timestamp="1626229716303">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="978" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1626210139778" />
+    <state x="978" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1626229716303" />
   </component>
 </project>

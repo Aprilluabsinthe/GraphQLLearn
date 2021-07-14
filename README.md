@@ -435,8 +435,37 @@ query getArticle(){
             }
 </script>
 ```
+### Apollo
+![Apollo](static/Apollo.png)
 
+Instructions: 
+<a href="https://www.apollographql.com/docs/apollo-server/getting-started/">Get Started</a>
 
+In this repo:
+<a href="index.js">index.js</a>
+
+Run the following command to install both of these dependencies and save them in your project's node_modules directory:
+
+```
+npm install apollo-server graphql
+```
+
+Also create an empty index.js file in your project's root directory:
+```
+touch index.js
+```
+
+You can also:
+
+>Select Automatically redirect to Studio next time if you want to open Sandbox automatically whenever you visit localhost:4000
+>
+>Open Sandbox directly at <a href>studio.apollographql.com/sandbox</a>
+
+#### applying middle ware
+Instructions: 
+<a href="https://www.apollographql.com/docs/apollo-server/v2/integrations/middleware/#gatsby-focus-wrapper">Applying middle ware</a>
+
+``` npm install apollo-server-express```
 
 ---
 
